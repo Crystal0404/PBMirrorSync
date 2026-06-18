@@ -1,4 +1,18 @@
 pb_mirror_sync:
-  running: 同步中, 请等待操作完成
-  no_confirm: 没有什么需要确认的
-  abort: 终止操作
+  common:
+    root_title: '使用{command} 同步世界'
+    sync_prepare: '即将对世界进行{sync_red}'
+    sync_countdown: '服务器将在{sec}秒后重启并{sync_red}世界'
+    sync_red: '同步'
+    sync_hover: '点击同步世界'
+    sync_confirm_hint: '使用{confirm} 确认{sync_read}, {abort} 取消'
+    running: '{sync_red}中, 请等待操作完成'
+    cancel: '终止操作'
+    pb_unload: "未检测到插件'prime_backup'"
+    pb_make_commet: '同步前备份'
+  confirm:
+    no_confirm: '没有什么需要确认的'
+    hover: '点击确认同步'
+  abort:
+    hover: '点击取消同步'
+    cancel: '{sync_red}被中断!'
