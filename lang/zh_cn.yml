@@ -1,0 +1,4 @@
+pb_mirror_sync:
+  running: 同步中, 请等待操作完成
+  no_confirm: 没有什么需要确认的
+  abort: 终止操作
