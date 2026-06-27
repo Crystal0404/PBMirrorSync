@@ -15,7 +15,7 @@ abort_event = Event()
 lock = RLock()
 
 
-def on_load(server: PluginServerInterface, old):
+def on_load(server: PluginServerInterface, _):
     global CONFIG
     CONFIG = server.load_config_simple(target_class=Config)
     root = (
