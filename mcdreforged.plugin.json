@@ -1,12 +1,12 @@
 {
     "id": "pb_mirror_sync",
-    "version": "1.0.0",
+    "version": "0.1.0-alpha.1",
     "name": "PB Mirror Sync",
     "description": "Synchronize the world from PrimeBackup!",
     "author": [
         "Crystal0404"
     ],
-    "link": "https://github.com/MCDReforged/PluginTemplate",
+    "link": "https://github.com/Crystal0404/PBMirrorSync",
     "dependencies": {
         "mcdreforged": ">=2.15.0"
     },
