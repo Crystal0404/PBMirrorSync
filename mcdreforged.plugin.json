@@ -2,7 +2,7 @@
     "id": "pb_mirror_sync",
     "version": "1.0.0",
     "name": "PB Mirror Sync",
-    "description": "This description is a description to your plugin",
+    "description": "Synchronize the world from PrimeBackup!",
     "author": [
         "Crystal0404"
     ],
@@ -10,7 +10,6 @@
     "dependencies": {
         "mcdreforged": ">=2.15.0"
     },
-
     "resources": [
         "lang"
     ]
