@@ -56,16 +56,10 @@ def root_command(source: CommandSource):
 def sync():
     global sync_status
     if lock.locked():
-        broadcast(
-            'pb_mirror_sync.common.running',
-            sync_red=RText(SI.rtr('pb_mirror_sync.common.sync_red'), color=RColor.red)
-        )
+        broadcast('pb_mirror_sync.common.running')
     else:
         sync_status = True
-        broadcast(
-            'pb_mirror_sync.common.sync_prepare',
-            sync_red=RText(SI.rtr('pb_mirror_sync.common.sync_red'), color=RColor.red)
-        )
+        broadcast('pb_mirror_sync.common.sync_prepare')
         broadcast(
             'pb_mirror_sync.common.sync_confirm_hint',
             confirm=RText(f'{CONFIG.prefix} confirm', color=RColor.gray)
@@ -73,8 +67,7 @@ def sync():
             .set_hover_event(RHoverText(SI.rtr('pb_mirror_sync.confirm.hover'))),
             abort=RText(f'{CONFIG.prefix} abort', color=RColor.gray)
             .set_click_event(RClickRunCommand(f'{CONFIG.prefix} abort'))
-            .set_hover_event(RHoverText(SI.rtr('pb_mirror_sync.abort.hover'))),
-            sync_read=RText(SI.rtr('pb_mirror_sync.common.sync_red'), color=RColor.red)
+            .set_hover_event(RHoverText(SI.rtr('pb_mirror_sync.abort.hover')))
         )
 
 
@@ -86,15 +79,11 @@ def _sync():
     for i in range(10, 0, -1):
         broadcast(
             'pb_mirror_sync.common.sync_countdown',
-            sec=RText(i, color=RColor.yellow),
-            sync_red=RText(SI.rtr('pb_mirror_sync.common.sync_red'), color=RColor.red)
+            sec=RText(i, color=RColor.yellow)
         )
         abort_event.wait(timeout=1)
         if abort_event.is_set():
-            broadcast(
-                'pb_mirror_sync.abort.cancel',
-                sync_red=RText(SI.rtr('pb_mirror_sync.common.sync_red'), color=RColor.red)
-            )
+            broadcast('pb_mirror_sync.abort.cancel')
             return
 
     SI.stop()
