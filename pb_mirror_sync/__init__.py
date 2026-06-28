@@ -98,7 +98,7 @@ def _sync():
             CONFIG.backup.db_file,
             'make',
             '-s',
-            CONFIG.backup.source_root,
+            str(get_server_path()),
             SI.tr('pb_mirror_sync.common.pb_make_commet')
         ]
         if CONFIG.backup.config_file is not None:

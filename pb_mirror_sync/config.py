@@ -5,7 +5,6 @@ from mcdreforged import *
 from pydantic import BaseModel, ConfigDict, field_validator, Field
 
 from pb_mirror_sync.constant import SI, PB_ID
-from pb_mirror_sync.utils import get_server_path
 
 
 class PBActionBase(BaseModel):
@@ -54,13 +53,7 @@ class PBActionExport(PBActionBase):
 
 
 class PBActionMake(PBActionBase):
-    source_root: str | None = None
     enabled: bool = False
-
-    @field_validator('source_root')
-    @classmethod
-    def source_root_validation(cls, value: str | None) -> str:
-        return str(get_server_path()) if value is None else value
 
 
 class Config(BaseModel):
