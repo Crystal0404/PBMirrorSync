@@ -1,6 +1,6 @@
 {
     "id": "pb_mirror_sync",
-    "version": "0.1.0-alpha.2",
+    "version": "0.1.0-alpha.3",
     "name": "PB Mirror Sync",
     "description": "Synchronize the world from PrimeBackup!",
     "author": [
