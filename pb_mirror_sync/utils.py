@@ -1,12 +1,23 @@
 from pathlib import Path
 
-from pb_mirror_sync.constant import SI
+from mcdreforged import PluginServerInterface
 
+
+__all__ = [
+    'PB_ID',
+    'si',
+    'broadcast',
+    'get_server_path'
+]
+PB_ID = 'prime_backup'
+
+def si():
+    return PluginServerInterface.get_instance()
 
 def broadcast(key: str, *args, **kwargs):
-    SI.broadcast(SI.rtr(key, *args, **kwargs))
+    si().broadcast(si().rtr(key, *args, **kwargs))
 
 
 def get_server_path() -> Path:
-    config = SI.get_mcdr_config()
+    config = si().get_mcdr_config()
     return Path(config['working_directory'])

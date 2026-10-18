@@ -4,7 +4,7 @@ from pathlib import Path
 from mcdreforged import *
 from pydantic import BaseModel, ConfigDict, field_validator, Field
 
-from pb_mirror_sync.constant import SI, PB_ID
+from pb_mirror_sync.utils import si, PB_ID
 
 
 class PBActionBase(BaseModel):
@@ -26,7 +26,7 @@ class PBActionBase(BaseModel):
                 return python
 
         path = Path(value)
-        if not path.exists() or not path.is_file():
+        if not path.is_file():
             raise ValueError
 
         return value
@@ -35,14 +35,14 @@ class PBActionBase(BaseModel):
     @classmethod
     def pb_validation(cls, value: str | None) -> str:
         if value is None:
-            pb = SI.get_plugin_file_path(PB_ID)
+            pb = si().get_plugin_file_path(PB_ID)
             if pb is not None:
                 return pb
             else:
                 raise ValueError
 
         path = Path(value)
-        if not path.exists() or not path.is_file():
+        if not path.is_file():
             raise ValueError
 
         return value
